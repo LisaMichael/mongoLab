@@ -1,3 +1,6 @@
+let mongoose = require('mongoose');
+let Schema = mongoose.Schema;
+
 // Database configuration
 var databaseUrl = "kukukwes";
 var collections = ["scrapedData"];
