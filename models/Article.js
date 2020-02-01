@@ -1,3 +1,5 @@
+// This code was obtained from wk18 class activities, exercise 20
+
 var mongoose = require("mongoose");
 
 // Save a reference to the Schema constructor
