@@ -11,7 +11,7 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-// var PORT = 3000;
+var PORT = 3005;
 
 // Initialize Express
 var app = express();
@@ -27,7 +27,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/micmac", { useNewUrlParser: true });
+// mongoose.connect("mongodb://localhost/micmac", { useNewUrlParser: true });
 
 var port = process.env.PORT || 3005
 
