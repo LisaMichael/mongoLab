@@ -11,7 +11,7 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = 8080;
+var PORT = 3000;
 
 // Initialize Express
 var app = express();
@@ -27,14 +27,14 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connect to the Mongo DB
-// mongoose.connect("mongodb://localhost/micmac", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/micmac", { useNewUrlParser: true });
 
-var port = process.env.PORT || 3000
+// var port = process.env.PORT || 3000
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user1:dbpassword1@ds017514.mlab.com:17514/heroku_2llrdp6v";
+// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user1:dbpassword1@ds017514.mlab.com:17514/heroku_2llrdp6v";
 
-mongoose.connect(MONGODB_URI);
+// mongoose.connect(MONGODB_URI);
 
 
 // Routes
