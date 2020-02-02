@@ -2,8 +2,12 @@
 // scrapte button code goes here 
 
 // display article button code goes here 
+// articles();
 
 // delete all button code goes here 
+
+
+function deleteAll() {db.articles.remove({})};
 
 // Grab the articles as a json
 $.getJSON("/articles", function(data) {
@@ -77,4 +81,8 @@ $.getJSON("/articles", function(data) {
     $("#titleinput").val("");
     $("#bodyinput").val("");
   });
+
+  // function article(){
+  //   alert("test");
+  // };
   
