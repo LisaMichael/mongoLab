@@ -36,6 +36,10 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user:password1@ds017514.
 
 // mongoose.connect(MONGODB_URI);
 
+// Show any mongoose errors
+db.on("error", function(error) {
+	console.log("Mongoose Error: ", error);
+});
 
 // Routes
 
