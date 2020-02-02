@@ -32,7 +32,7 @@ app.use(express.static("public"));
 var port = process.env.PORT || 3002
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/micmac";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user1:dbpassword1@ds017514.mlab.com:17514/heroku_2llrdp6v";
 
 mongoose.connect(MONGODB_URI);
 
