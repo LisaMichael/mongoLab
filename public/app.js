@@ -1,3 +1,10 @@
+
+// scrapte button code goes here 
+
+// display article button code goes here 
+
+// delete all button code goes here 
+
 // Grab the articles as a json
 $.getJSON("/articles", function(data) {
     // For each one
