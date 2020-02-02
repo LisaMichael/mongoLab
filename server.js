@@ -32,7 +32,7 @@ mongoose.connect("mongodb://localhost/micmac", { useNewUrlParser: true });
 // var port = process.env.PORT || 3000
 
 // If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
-// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user1:dbpassword1@ds017514.mlab.com:17514/heroku_2llrdp6v";
+// var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user1:password1@ds017514.mlab.com:17514/heroku_2llrdp6v";
 
 // mongoose.connect(MONGODB_URI);
 
