@@ -1,3 +1,5 @@
+// Please reference wk18 exercise 20 , scraping a mongo database
+
 var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
