@@ -1,5 +1,3 @@
-
-  
 var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
@@ -17,6 +15,7 @@ var PORT = process.env.PORT || 3000;
 //Initialize Express
 var app = express();
 
+//Configure middleware
 
 //Morgan logger for logging requests
 app.use(logger("dev"));
@@ -34,7 +33,7 @@ mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/tricksScraper", 
 //Routes
 //This can go in routes
 app.get("/scrape", function(req, res) {
-    axios.get("http://https://www.mmnn.ca/").then(function(response) {
+    axios.get("http://www.css-tricks.com/archives/").then(function(response) {
         //Then load response data into cheerio and save it to $ for a shorthand selector
         var $ = cheerio.load(response.data);
 
@@ -68,7 +67,7 @@ app.get("/scrape", function(req, res) {
     });
 });
 
-
+//This can go to controllers
 //Route for getting all Articles from the db
 app.get("/articles", function(req, res) {
     db.Article.find({})
@@ -80,7 +79,7 @@ app.get("/articles", function(req, res) {
         })
 });
 
-
+//This can go to controllers
 //Route for grabbing a specific Article by id, populate it with it's note
 app.get("/articles/:id", function(req, res) {
     //Find one article using req.params.id, and run the populate method with "note", then respond with the article the note included
@@ -112,7 +111,7 @@ app.post("/articles/:id", function(req, res) {
 //Additional routes to be written:
 
 //Route for deleting an article
-
+//This would be controller
 app.delete("/articles/:id", function(req, res) {
     db.Article.deleteOne({_id: req.params.id})
         .then(function(dbArticle) {
@@ -126,7 +125,7 @@ app.delete("/articles/:id", function(req, res) {
 });
 
 //Route for deleting all articles
-
+//This would be a controller
 app.delete("/clear", function(req, res) {
     db.Article.deleteMany({})
         .then(function(dbArticle) {
@@ -138,8 +137,8 @@ app.delete("/clear", function(req, res) {
         })
 })
 
-
-
+//Route for saving an article by creating a new collection with saved articles and their associated notes. This would probably be best in order to maintain data persistence.
+//This would be a controller
 
 //Start the server
 app.listen(PORT, function(){
