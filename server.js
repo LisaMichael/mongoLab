@@ -15,7 +15,7 @@ var PORT = process.env.PORT || 3000;
 //Initialize Express
 var app = express();
 
-//Configure middleware
+
 
 //Morgan logger for logging requests
 app.use(logger("dev"));
@@ -67,7 +67,7 @@ app.get("/scrape", function(req, res) {
     });
 });
 
-//This can go to controllers
+
 //Route for getting all Articles from the db
 app.get("/articles", function(req, res) {
     db.Article.find({})
@@ -79,7 +79,7 @@ app.get("/articles", function(req, res) {
         })
 });
 
-//This can go to controllers
+
 //Route for grabbing a specific Article by id, populate it with it's note
 app.get("/articles/:id", function(req, res) {
     //Find one article using req.params.id, and run the populate method with "note", then respond with the article the note included
@@ -91,7 +91,7 @@ app.get("/articles/:id", function(req, res) {
 });
 
 //Route for saving/updating an Articles's associated Note
-//This can go to controllers
+
 app.post("/articles/:id", function(req, res) {
     //Save the new note that gets posted to the Notes collection then find an article from the req.params.id and update it's "note" property with the _id of the new note
     db.Note.create(req.body)
@@ -117,7 +117,7 @@ app.delete("/articles/:id", function(req, res) {
         .then(function(dbArticle) {
             console.log("Article deleted.");
             res.json("deleted");
-            // return db.Article.deleteOne({_id: req.params.id});
+            
         })
         .catch(function(err) {
             res.json(err);
@@ -125,7 +125,7 @@ app.delete("/articles/:id", function(req, res) {
 });
 
 //Route for deleting all articles
-//This would be a controller
+
 app.delete("/clear", function(req, res) {
     db.Article.deleteMany({})
         .then(function(dbArticle) {
@@ -138,7 +138,7 @@ app.delete("/clear", function(req, res) {
 })
 
 //Route for saving an article by creating a new collection with saved articles and their associated notes. This would probably be best in order to maintain data persistence.
-//This would be a controller
+
 
 //Start the server
 app.listen(PORT, function(){
