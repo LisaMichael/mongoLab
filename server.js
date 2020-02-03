@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 //Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/tricksScraper", {useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost/webscraperdb", {useNewUrlParser: true });
 
 
 
@@ -111,7 +111,7 @@ app.post("/articles/:id", function(req, res) {
 //Additional routes to be written:
 
 //Route for deleting an article
-//This would be controller
+
 app.delete("/articles/:id", function(req, res) {
     db.Article.deleteOne({_id: req.params.id})
         .then(function(dbArticle) {
